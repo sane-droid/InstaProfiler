@@ -4,118 +4,122 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#DD3F3F"
     tools:context=".ui.activities.HomeActivity">
 
-    <ImageView
-        android:id="@+id/backgroundImage"
-        android:layout_width="1100dp"
-        android:layout_height="1017dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.457"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.846"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
-
-    <ImageView
-        android:id="@+id/titleBar"
-        android:layout_width="339dp"
-        android:layout_height="70dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024"
-        app:srcCompat="@drawable/rectangle" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="286dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="68dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleBar"
-        app:srcCompat="@drawable/ic_female_illustration" />
-
     <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="304dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="64dp"
+        android:id="@+id/editTextTextPersonName2"
+        android:layout_width="327dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="356dp"
         android:background="@drawable/rectanglenoradius"
         android:ems="10"
         android:gravity="center"
-        android:hint="Enter Instagram username"
+        android:hint="Enter your Instagram username"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        android:padding="20sp"
+        android:textColor="#E85050"
+        android:textColorHint="#E42121"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="356dp"
+        android:layout_height="48dp"
+        android:layout_margin="10dp"
+        android:layout_marginVertical="20dp"
+        android:background="@drawable/rectangle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023">
+
+        <ImageButton
+            android:id="@+id/hamburger"
+            android:layout_width="wrap_content"
+            android:layout_height="27dp"
+            android:layout_alignEnd="@+id/hamburger"
+            android:layout_alignRight="@+id/hamburger"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="11dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
+            android:background="@color/white"
+            android:contentDescription="TODO"
+            android:padding="20sp"
+            app:srcCompat="@drawable/ic_hamburger"
+            tools:ignore="NotSibling" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:text="INSTA PROFILER"
+            android:textColor="#D60A0A"
+            android:textSize="24sp" />
+    </RelativeLayout>
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="44dp"
-        android:layout_height="17dp"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.851"
+        android:layout_width="32dp"
+        android:layout_height="22dp"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName2"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
+        app:layout_constraintHorizontal_bias="0.031"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+        app:layout_constraintVertical_bias="0.941"
         app:srcCompat="@drawable/ic_people" />
 
-    <ImageView
-        android:id="@+id/hamburger"
-        android:layout_width="41dp"
-        android:layout_height="28dp"
-        app:layout_constraintBottom_toBottomOf="@+id/titleBar"
-        app:layout_constraintEnd_toEndOf="@+id/titleBar"
-        app:layout_constraintHorizontal_bias="0.067"
-        app:layout_constraintStart_toStartOf="@+id/titleBar"
-        app:layout_constraintTop_toTopOf="@+id/titleBar"
-        app:layout_constraintVertical_bias="0.523"
-        app:srcCompat="@drawable/ic_hamburger" />
-
-    <ImageButton
-        android:id="@+id/searchButton"
-        android:layout_width="66dp"
-        android:layout_height="67dp"
-        android:background="@drawable/round"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="264dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.953"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/titleBar"
-        app:layout_constraintVertical_bias="0.953"
-        app:srcCompat="@drawable/ic_search" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        tools:layout_editor_absoluteX="0dp">
 
-    <TextView
-        android:id="@+id/footNote"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="\u00a9 Insta Profiler 2021"
-        android:textColor="#F8F6F6"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/searchButton"
-        app:layout_constraintHorizontal_bias="0.694"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
-        app:layout_constraintVertical_bias="0.972" />
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="74dp"
+            android:layout_height="76dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="22dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/round"
+            app:srcCompat="@drawable/ic_search" />
 
-    <TextView
-        android:id="@+id/titleBarText"
-        android:layout_width="142dp"
-        android:layout_height="34dp"
-        android:text="INSTA PROFILER"
-        android:textColor="#D10707"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/titleBar"
-        app:layout_constraintEnd_toEndOf="@+id/titleBar"
-        app:layout_constraintHorizontal_bias="0.433"
-        app:layout_constraintStart_toEndOf="@+id/hamburger"
-        app:layout_constraintTop_toTopOf="@+id/titleBar"
-        app:layout_constraintVertical_bias="0.611" />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="133dp"
+            android:layout_marginLeft="133dp"
+            android:layout_marginEnd="53dp"
+            android:layout_marginRight="53dp"
+            android:layout_toStartOf="@+id/imageButton3"
+            android:layout_toLeftOf="@+id/imageButton3"
+            android:text="\u00a9 Insta Profiler 2021"
+            android:textColor="#FFFDFD"
+            android:textSize="8sp" />
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
