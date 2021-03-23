@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">InstaProfiler</string>
+    <string name="textviewtext">Enter  Instagram user name</string>
 </resources>
