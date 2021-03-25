@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/home_bg"
+    tools:context=".ui.activities.ProfileActivity">
+
+    <RelativeLayout
+        android:id="@+id/profileHeader"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/rectangle"
+        android:elevation="1dp"
+        android:outlineAmbientShadowColor="@color/black"
+        android:padding="7dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageButton
+            android:id="@+id/profile_back_button"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="6dp"
+            android:background="@android:color/transparent"
+            android:hapticFeedbackEnabled="true"
+            app:srcCompat="@drawable/ic_icon_ionic_ios_arrow_back" />
+
+        <TextView
+            android:id="@+id/profileUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@android:color/transparent"
+            android:text="Unknown999"
+            android:textColor="#DC3838"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/profileDetails"
+        android:layout_width="343dp"
+        android:layout_height="638dp"
+        android:background="@drawable/profilerectangle"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileHeader"
+        android:elevation="10dp"
+        app:layout_constraintVertical_bias="0.532">
+
+        <TextView
+            android:id="@+id/profileFollowing"
+            android:layout_width="282dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profilePhoto"
+            android:layout_alignStart="@+id/profileBio"
+            android:layout_alignLeft="@+id/profileBio"
+            android:layout_alignEnd="@+id/profileBio"
+            android:layout_alignRight="@+id/profileBio"
+            android:layout_alignBottom="@+id/profileBio"
+            android:layout_marginStart="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="274dp"
+            android:layout_marginEnd="-2dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginBottom="-142dp"
+            android:background="@drawable/rectangleextview"
+            android:elevation="10dp"
+            android:padding="15dp"
+            android:text="Following"
+            android:textColor="#E15E5E" />
+
+        <ImageView
+            android:id="@+id/profilePhoto"
+            android:layout_width="250dp"
+            android:layout_height="171dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="40dp"
+            android:elevation="10dp"
+            app:srcCompat="@drawable/profileround" />
+
+        <TextView
+            android:id="@+id/profileName"
+            android:layout_width="285dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profilePhoto"
+            android:layout_alignStart="@+id/profilePhoto"
+            android:layout_alignLeft="@+id/profilePhoto"
+            android:layout_alignEnd="@+id/profilePhoto"
+            android:layout_alignRight="@+id/profilePhoto"
+            android:layout_alignBottom="@+id/profilePhoto"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="-34dp"
+            android:layout_marginLeft="-34dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="-35dp"
+            android:layout_marginRight="-35dp"
+            android:layout_marginBottom="-78dp"
+            android:background="@drawable/rectangleextview"
+            android:elevation="10dp"
+            android:padding="15dp"
+            android:text="Name"
+            android:textColor="#E15E5E" />
+
+        <TextView
+            android:id="@+id/profileBio"
+            android:layout_width="263dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/profileName"
+            android:layout_alignLeft="@+id/profileName"
+            android:layout_alignEnd="@+id/profileName"
+            android:layout_alignRight="@+id/profileName"
+            android:layout_alignBottom="@+id/profilePhoto"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="-2dp"
+            android:layout_marginLeft="-2dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="-189dp"
+            android:background="@drawable/rectangleextview"
+            android:elevation="10dp"
+            android:padding="15dp"
+            android:text="Bio"
+            android:textColor="#E15E5E" />
+
+        <TextView
+            android:id="@+id/profileFollowers"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profilePhoto"
+            android:layout_alignStart="@+id/profileBio"
+            android:layout_alignLeft="@+id/profileBio"
+            android:layout_alignEnd="@+id/profileBio"
+            android:layout_alignRight="@+id/profileBio"
+            android:layout_alignBottom="@+id/profileBio"
+            android:layout_marginStart="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="203dp"
+            android:layout_marginEnd="-3dp"
+            android:layout_marginRight="-3dp"
+            android:layout_marginBottom="-72dp"
+            android:background="@drawable/rectangleextview"
+            android:elevation="10dp"
+            android:padding="15dp"
+            android:text="Followers"
+            android:textColor="#E15E5E" />
+
+        <TextView
+            android:id="@+id/profileLink"
+            android:layout_width="281dp"
+            android:layout_height="55dp"
+            android:layout_alignStart="@+id/profileFollowing"
+            android:layout_alignLeft="@+id/profileFollowing"
+            android:layout_alignEnd="@+id/profileFollowing"
+            android:layout_alignRight="@+id/profileFollowing"
+            android:layout_alignBottom="@+id/profileFollowing"
+            android:layout_marginStart="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="-69dp"
+            android:background="@drawable/rectangleextview"
+            android:elevation="10dp"
+            android:padding="15dp"
+            android:text="Link"
+            android:textColor="#E15E5E" />
+
+        <ImageButton
+            android:id="@+id/lockButton"
+            android:layout_width="66dp"
+            android:layout_height="56dp"
+            android:layout_alignStart="@+id/profilePhoto"
+            android:layout_alignLeft="@+id/profilePhoto"
+            android:layout_alignTop="@+id/profilePhoto"
+            android:layout_alignEnd="@+id/profilePhoto"
+            android:layout_alignRight="@+id/profilePhoto"
+            android:layout_alignBottom="@+id/profilePhoto"
+            android:layout_marginStart="205dp"
+            android:layout_marginLeft="205dp"
+            android:layout_marginTop="-16dp"
+            android:layout_marginEnd="-48dp"
+            android:layout_marginRight="-48dp"
+            android:layout_marginBottom="131dp"
+            android:background="@android:color/transparent"
+            android:elevation="10dp"
+            app:srcCompat="@drawable/ic_icon_awesome_user_lock" />
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
