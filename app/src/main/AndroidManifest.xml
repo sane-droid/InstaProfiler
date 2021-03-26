@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activities.ProfileActivity"></activity>
+            android:name=".ui.activities.ProfileActivity"
+            android:parentActivityName=".ui.activities.HomeActivity" />
     </application>
 
 </manifest>

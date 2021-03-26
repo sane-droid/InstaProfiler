@@ -10,6 +10,7 @@ public class UserProfile {
     private String following;
     private String posts;
     private String profilePic;
+    private String bio;
 
     //GETTERS
     public String getUserId() {
@@ -26,6 +27,10 @@ public class UserProfile {
     }
     public String getProfilePic(){
         return profilePic;
+    }
+    public String getBio()
+    {
+        return bio;
     }
 
     //SETTER
@@ -44,6 +49,10 @@ public class UserProfile {
     }
     public void setProfilePic(String newProfilePic){
         this.profilePic = newProfilePic;
+    }
+    public void setBio(String newBio)
+    {
+       this.bio=newBio;
     }
 
 }
