@@ -32,13 +32,14 @@ public class ProfilerRepository{
         Instagram instagram = new Instagram(httpClient);
         Account account = null;
         try {
+            account = instagram.getAccountByUsername(userName);
             UserProfile userProfile = new UserProfile();
             userProfile.setUserId(account.getFullName());
             userProfile.setFollowers(account.getFollows().toString());
             userProfile.setFollowing(account.getFollowedBy().toString());
             userProfile.setBio(account.getBiography());
+            userProfile.setPosts(account.getFullName());
             liveData.postValue(userProfile);
-            account = instagram.getAccountByUsername(userName);
         } catch (IOException e) {
             e.printStackTrace();
         }

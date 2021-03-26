@@ -1,20 +1,19 @@
 package com.instaprofiler.app.ui.activities;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.ImageButton;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.widget.ImageButton;
-import android.widget.TextView;
-
 import com.instaprofiler.app.R;
 import com.instaprofiler.app.data.model.UserProfile;
 import com.instaprofiler.app.data.repository.ProfilerRepository;
-import com.instaprofiler.app.ui.viewmodel.ProfilerViewModel;
 
 public class ProfileActivity extends AppCompatActivity {
     ImageButton profile_back_button;
@@ -53,6 +52,11 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onChanged(UserProfile userProfile) {
                 textView.setText(userId);
+                followers.setText(userProfile.getFollowers());
+                following.setText(userProfile.getFollowing());
+                name.setText(userProfile.getName());
+                bio.setText(userProfile.getBio());
+
             }
         });
     }
