@@ -27,7 +27,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
                 String userId = userName.getText().toString();
-                intent.putExtra("userName", (Parcelable) userName);
+                intent.putExtra("userName",userId);
                 startActivity(intent);
             }
         });
