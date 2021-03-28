@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -38,15 +39,24 @@ public class ProfileActivity extends AppCompatActivity {
         ViewModelProvider viewModelProvider = new ViewModelProvider(this,ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()));
         viewModelProvider.get(ProfilerViewModel.class);
         profilerViewModel = viewModelProvider.get(ProfilerViewModel.class);
-        profilerViewModel.getAccountDetail(userId);
 
-        profilerViewModel.liveData.observe(this, new Observer<UserProfile>() {
-            @Override
-            public void onChanged(UserProfile userProfile) {
-                textView.setText(userId);
+       Handler d= new Handler();
+                d.post(new Runnable() {
+                    @Override
+                    public void run() {
 
-            }
-        });
+                        profilerViewModel.getAccountDetail(userId);
+                        profilerViewModel.liveData.observe(ProfileActivity.this, new Observer<UserProfile>() {
+                            @Override
+                            public void onChanged(UserProfile userProfile) {
+                                textView.setText(userId);
+
+                            }
+                        });
+                    }
+                });
+
+
     }
 
 }

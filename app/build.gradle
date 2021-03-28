@@ -16,6 +16,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         android.defaultConfig.vectorDrawables.useSupportLibrary = true
+
     }
 
     buildTypes {
@@ -39,6 +40,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation "com.android.support:design:29.1.1"
-    implementation group: 'com.github.igor-suhorukov', name: 'instagramscraper', version: '2.2'
+    implementation 'com.github.postaddictme:instagram-java-scraper:0.3.0'
     implementation 'com.github.bumptech.glide:glide:4.12.0'
 }
