@@ -1,49 +1,36 @@
 package com.instaprofiler.app.data.repository;
 
+
+import android.widget.Toast;
+
 import androidx.lifecycle.MutableLiveData;
 
-import com.instaprofiler.app.data.model.UserProfile;
+import com.instaprofiler.app.data.model.InstaService;
+import com.instaprofiler.app.data.model.User;
 
-import java.io.IOException;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
-import me.postaddict.instagram.scraper.Instagram;
-import me.postaddict.instagram.scraper.cookie.CookieHashSet;
-import me.postaddict.instagram.scraper.cookie.DefaultCookieJar;
-import me.postaddict.instagram.scraper.interceptor.ErrorInterceptor;
-import me.postaddict.instagram.scraper.model.Account;
-import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
-
+import static com.instaprofiler.app.data.api.InstagramApi.getService;
 
 public class ProfilerRepository{
     //TODO implement logic calling java scrapper app
-    public MutableLiveData<UserProfile> getAccountDetail(String userName){
-        MutableLiveData <UserProfile> liveData = new MutableLiveData<UserProfile>();
+    public MutableLiveData<User> getAccountDetail (String userName){
+        MutableLiveData <User> liveData = new MutableLiveData<User>();
+        getService().getUser(userName).enqueue(new Callback<InstaService>() {
+            @Override
+            public void onResponse(Call<InstaService> call, Response<InstaService> response) {
+                User userId = response.body().getGraphql().getUser();
+                liveData.postValue(userId);
+            }
 
-        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
-        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-
-        OkHttpClient httpClient = new OkHttpClient.Builder()
-                .addNetworkInterceptor(loggingInterceptor)
-                .addInterceptor(new ErrorInterceptor())
-                .cookieJar(new DefaultCookieJar(new CookieHashSet()))
-                .build();
-
-        Instagram instagram = new Instagram(httpClient);
-        Account account = null;
-        try {
-            account = instagram.getAccountByUsername(userName);
-            UserProfile userProfile = new UserProfile();
-            userProfile.setUserId(account.getFullName());
-            userProfile.setFollowers(account.getFollows().toString());
-            userProfile.setFollowing(account.getFollowedBy().toString());
-            userProfile.setBio(account.getBiography());
-            userProfile.setPosts(account.getFullName());
-            liveData.postValue(userProfile);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println(account.getMedia().getCount());
+            @Override
+            public void onFailure(Call<InstaService> call, Throwable t) {
+                liveData.postValue(null);
+                t.getMessage();
+            }
+        });
         return liveData;
     }
 }

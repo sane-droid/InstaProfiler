@@ -3,6 +3,7 @@ package com.instaprofiler.app.ui.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,18 +12,19 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.bumptech.glide.Glide;
 import com.instaprofiler.app.R;
-import com.instaprofiler.app.data.model.UserProfile;
+import com.instaprofiler.app.data.model.User;
 import com.instaprofiler.app.data.repository.ProfilerRepository;
 
 public class ProfileActivity extends AppCompatActivity {
     ImageButton profile_back_button;
     ProfilerViewModel profilerViewModel;
     TextView textView,following,followers,name,bio;
-    String userId;
+    String user;
 
     public static class ProfilerViewModel extends ViewModel {
-        public LiveData <UserProfile> liveData = null;
+        public LiveData <User> liveData = null;
         ProfilerRepository profilerRepository = new ProfilerRepository();
         public void getAccountDetail(String userName){
             liveData = profilerRepository.getAccountDetail(userName);
@@ -41,22 +43,22 @@ public class ProfileActivity extends AppCompatActivity {
         bio = findViewById(R.id.profileBio);
 
         Intent intent = getIntent();
-        userId = intent.getStringExtra("userName");
+        user = intent.getStringExtra("userName");
 
         ViewModelProvider viewModelProvider = new ViewModelProvider(this,ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()));
         viewModelProvider.get(ProfilerViewModel.class);
         profilerViewModel = viewModelProvider.get(ProfilerViewModel.class);
-        profilerViewModel.getAccountDetail(userId);
+        profilerViewModel.getAccountDetail(user);
 
-        profilerViewModel.liveData.observe(this, new Observer<UserProfile>() {
+        profilerViewModel.liveData.observe(this, new Observer<User>() {
             @Override
-            public void onChanged(UserProfile userProfile) {
-                textView.setText(userId);
-                followers.setText(userProfile.getFollowers());
-                following.setText(userProfile.getFollowing());
-                name.setText(userProfile.getName());
-                bio.setText(userProfile.getBio());
-
+            public void onChanged(User userProfile) {
+                textView.setText(user);
+                followers.setText(userProfile.getEdgeFollowedBy().getCount());
+                following.setText(userProfile.getEdgeFollow().getCount());
+                name.setText(userProfile.getFullName());
+                bio.setText(userProfile.getBiography());
+                Glide.with(ProfileActivity.this).load(userProfile.getProfilePicUrlHd()).circleCrop().into((ImageView) findViewById(R.id.profilePhoto));
             }
         });
     }
