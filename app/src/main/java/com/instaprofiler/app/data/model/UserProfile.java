@@ -11,6 +11,7 @@ public class UserProfile {
     private String posts;
     private String profilePic;
     private String bio;
+    private String name;
 
     //GETTERS
     public String getUserId() {
@@ -31,6 +32,9 @@ public class UserProfile {
     public String getBio()
     {
         return bio;
+    }
+    public String getName(){
+        return name;
     }
 
     //SETTER
@@ -53,6 +57,9 @@ public class UserProfile {
     public void setBio(String newBio)
     {
        this.bio=newBio;
+    }
+    public void setName(String newName){
+        this.name = newName;
     }
 
 }
