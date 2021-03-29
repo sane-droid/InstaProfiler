@@ -2,6 +2,15 @@ package com.instaprofiler.app.data.api;
 
 import com.instaprofiler.app.data.model.InstaService;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
+
+import okhttp3.Cookie;
+import okhttp3.CookieJar;
+import okhttp3.HttpUrl;
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -15,8 +24,15 @@ public class InstagramApi {
 
     public static InstagramProfile getService() {
         if (instagramProfile == null) {
+
+            HttpLoggingInterceptor loggingInterceptor=new HttpLoggingInterceptor();
+            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+            OkHttpClient.Builder httpClient=new OkHttpClient.Builder();
+            httpClient.addInterceptor(loggingInterceptor);
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(baseUrl)
+                    .client(httpClient.build())
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
             instagramProfile = retrofit.create(InstagramProfile.class);

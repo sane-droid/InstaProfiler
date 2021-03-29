@@ -360,7 +360,7 @@ public class User {
     }
 
     public String getProfilePicUrl() {
-        return profilePicUrl;
+        return profilePicUrl.replace("amp;","");
     }
 
     public void setProfilePicUrl(String profilePicUrl) {
@@ -368,7 +368,7 @@ public class User {
     }
 
     public String getProfilePicUrlHd() {
-        return profilePicUrlHd;
+        return profilePicUrlHd.replace("amp;","");
     }
 
     public void setProfilePicUrlHd(String profilePicUrlHd) {
