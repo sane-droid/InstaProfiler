@@ -1,4 +1,4 @@
-package com.instaprofiler.app;
+package com.instaprofiler.app.ui.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.instaprofiler.app.ui.activities.HomeActivity;
+import com.instaprofiler.app.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
                     public void run(){
                 Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                 startActivity(intent);
+                finish();
 
             }
         },3000);
