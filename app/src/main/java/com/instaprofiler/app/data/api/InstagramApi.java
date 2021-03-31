@@ -1,14 +1,6 @@
 package com.instaprofiler.app.data.api;
 
 import com.instaprofiler.app.data.model.InstaService;
-
-import org.jetbrains.annotations.NotNull;
-
-import java.util.List;
-
-import okhttp3.Cookie;
-import okhttp3.CookieJar;
-import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
