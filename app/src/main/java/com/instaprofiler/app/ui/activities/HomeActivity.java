@@ -2,15 +2,12 @@ package com.instaprofiler.app.ui.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -30,7 +27,6 @@ public class HomeActivity extends AppCompatActivity {
         home_search_button = findViewById(R.id.home_search_button);
         userName = findViewById(R.id.home_insta_username);
         hamburger = findViewById(R.id.hamburger);
-//        drawerLayout = findViewById(R.id.drawerlayout);
         navigationView = findViewById(R.id.navigationView);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -38,7 +34,8 @@ public class HomeActivity extends AppCompatActivity {
                 switch (item.getItemId())
                 {
                     case R.id.nav_home:
-                        Toast.makeText(HomeActivity.this, "clicked Home", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(HomeActivity.this,HomeActivity.class);
+                        startActivity(intent);
                         break;
                 }
 
