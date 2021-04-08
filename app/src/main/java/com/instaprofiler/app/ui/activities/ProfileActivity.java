@@ -1,5 +1,6 @@
 package com.instaprofiler.app.ui.activities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +22,7 @@ import com.instaprofiler.app.data.repository.ProfilerRepository;
 import com.instaprofiler.app.ui.dialogfragment.ImageDialog;
 
 public class ProfileActivity extends AppCompatActivity {
+    User instaUser;
     ImageButton profile_back_button;
     ImageView profilePhoto;
     ProfilerViewModel profilerViewModel;
@@ -59,7 +61,7 @@ public class ProfileActivity extends AppCompatActivity {
         profilePhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ImageDialog imageDialog = new ImageDialog();
+                ImageDialog imageDialog = new ImageDialog(instaUser.getProfilePicUrlHd());
                 imageDialog.show(getSupportFragmentManager(), "MY FRAGMENT");
             }
         });
@@ -73,6 +75,7 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
         profilerViewModel.liveData.observe(this, new Observer<User>() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onChanged(User userProfile) {
                 textView.setText(user);
@@ -91,6 +94,7 @@ public class ProfileActivity extends AppCompatActivity {
                         final ImageButton button = findViewById(R.id.lockButton);
                         button.setVisibility(View.VISIBLE);
                     }
+                    instaUser = userProfile;
                 }
             }
         });
