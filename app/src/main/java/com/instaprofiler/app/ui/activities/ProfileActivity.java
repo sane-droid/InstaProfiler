@@ -94,8 +94,8 @@ public class ProfileActivity extends AppCompatActivity {
                         final ImageButton button = findViewById(R.id.lockButton);
                         button.setVisibility(View.VISIBLE);
                     }
-                    instaUser = userProfile;
                 }
+                instaUser = userProfile;
             }
         });
     }
