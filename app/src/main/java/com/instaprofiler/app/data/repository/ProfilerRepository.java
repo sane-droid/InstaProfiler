@@ -18,7 +18,6 @@ import org.jsoup.nodes.Document;
 import java.io.IOException;
 
 public class ProfilerRepository {
-    //TODO implement logic calling java scrapper app
     public MutableLiveData<User> getAccountDetail(String userName) {
         MutableLiveData<User> liveData = new MutableLiveData<User>();
         new Thread(() -> {
