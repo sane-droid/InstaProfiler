@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.instaprofiler.app">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,8 +16,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.InstaProfiler">
-        <activity android:name=".ui.activities.HomeActivity"></activity>
+        android:theme="@style/Theme.InstaProfiler"
+        tools:ignore="HardcodedDebugMode">
+        <activity android:name=".ui.activities.HomeActivity"
+            android:screenOrientation="portrait"
+            ></activity>
         <activity
             android:name=".ui.activities.MainActivity"
             android:screenOrientation="portrait">
@@ -28,11 +32,15 @@
         </activity>
         <activity
             android:name=".ui.activities.ProfileActivity"
-            android:parentActivityName=".ui.activities.HomeActivity" />
+            android:screenOrientation="portrait"
+           />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/admob_app_id"/>
 
 
     </application>
