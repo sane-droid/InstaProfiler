@@ -2,11 +2,13 @@ package com.instaprofiler.app.ui.activities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
@@ -16,10 +18,12 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.google.android.material.snackbar.Snackbar;
 import com.instaprofiler.app.R;
 import com.instaprofiler.app.data.model.User;
 import com.instaprofiler.app.data.repository.ProfilerRepository;
 import com.instaprofiler.app.ui.dialogfragment.ImageDialog;
+import com.instaprofiler.app.ui.dialogfragment.ProgressDialog;
 
 public class ProfileActivity extends AppCompatActivity {
     User instaUser;
@@ -28,6 +32,10 @@ public class ProfileActivity extends AppCompatActivity {
     ProfilerViewModel profilerViewModel;
     TextView textView, following, followers, name, bio, profileLink, posts;
     String user;
+    ProgressDialog progressDialog;
+    public static int MAX=2;
+    public static final String LIMIT_PREF="COUNT_MAX_LIMIT";
+    SharedPreferences pref=null;
 
     public static class ProfilerViewModel extends ViewModel {
         public LiveData<User> liveData = null;
@@ -51,27 +59,24 @@ public class ProfileActivity extends AppCompatActivity {
         profileLink = findViewById(R.id.profileLink);
         profilePhoto = findViewById(R.id.profilePhoto);
         posts = findViewById(R.id.posts);
+        pref=getSharedPreferences("COUNT_USE",MODE_PRIVATE);
+        progressDialog=new ProgressDialog();
         Intent intent = getIntent();
         user = intent.getStringExtra("userName");
         ViewModelProvider viewModelProvider = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()));
         viewModelProvider.get(ProfilerViewModel.class);
         profilerViewModel = viewModelProvider.get(ProfilerViewModel.class);
+        progressDialog.show(getSupportFragmentManager(),"profile_progress");
         profilerViewModel.getAccountDetail(user);
 
-        profilePhoto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ImageDialog imageDialog = new ImageDialog(instaUser.getProfilePicUrlHd());
-                imageDialog.show(getSupportFragmentManager(), "MY FRAGMENT");
-            }
+        profilePhoto.setOnClickListener(v -> {
+            ImageDialog imageDialog = new ImageDialog(instaUser);
+            imageDialog.show(getSupportFragmentManager(), "MY FRAGMENT");
         });
 
-        profile_back_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent1 = new Intent(ProfileActivity.this, HomeActivity.class);
-                startActivity(intent1);
-            }
+        profile_back_button.setOnClickListener(v -> {
+            Intent intent1 = new Intent(ProfileActivity.this, HomeActivity.class);
+            startActivity(intent1);
         });
 
         profilerViewModel.liveData.observe(this, new Observer<User>() {
@@ -79,25 +84,43 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onChanged(User userProfile) {
                 textView.setText(user);
+                progressDialog.dismiss();
                 if (user != null) {
-                    followers.setText("Followers\n" + userProfile.getEdgeFollowedBy().getCount() + "");
-                    following.setText("Following\n" + userProfile.getEdgeFollow().getCount() + "");
-                    name.setText("Name\n" + userProfile.getFullName());
-                    bio.setText("Bio\n" + userProfile.getBiography());
-                    posts.setText("POSTS\n" + userProfile.getEdgeSavedMedia().getCount() + "");
-                    Glide.with(ProfileActivity.this).
-                            asBitmap().load(userProfile.getProfilePicUrlHd())
-                            .diskCacheStrategy(DiskCacheStrategy.ALL)
-                            .circleCrop().into((ImageView) findViewById(R.id.profilePhoto));
-                    profileLink.setText("Link\n" + (String) userProfile.getExternalUrl());
-                    if (userProfile.getIsPrivate()) {
-                        final ImageButton button = findViewById(R.id.lockButton);
-                        button.setVisibility(View.VISIBLE);
+
+                    try
+                    {
+                        followers.setText( ImageDialog.getInMK(userProfile.getEdgeFollowedBy().getCount()) + "");
+                        following.setText( ImageDialog.getInMK(userProfile.getEdgeFollow().getCount()) + "");
+                        name.setText( userProfile.getFullName());
+                        bio.setText( userProfile.getBiography());
+                        posts.setText(  userProfile.getEdgeOwnerToTimelineMedia().getCount() + "");
+                        Glide.with(ProfileActivity.this).
+                                asBitmap().load(userProfile.getProfilePicUrlHd())
+                                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                .circleCrop().into((ImageView) findViewById(R.id.profilePhoto));
+                        profileLink.setText(  (String) userProfile.getExternalUrl());
+                        if (userProfile.getIsPrivate()) {
+                            final ImageButton button = findViewById(R.id.lockButton);
+                            button.setVisibility(View.VISIBLE);
+                        }
+
                     }
+                    catch(Exception e)
+                    {
+                        Toast.makeText(getApplicationContext(),"Invaild username or connection problem",Toast.LENGTH_LONG).show();
+                        finish();
+                    }
+
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"Invaild username or connection problem",Toast.LENGTH_LONG).show();
+                    finish();
                 }
                 instaUser = userProfile;
             }
         });
     }
+
 
 }

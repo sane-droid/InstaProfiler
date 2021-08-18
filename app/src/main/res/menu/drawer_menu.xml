@@ -4,24 +4,13 @@
         android:id="@+id/group1">
         <item
             android:id="@+id/nav_home"
-            android:title="HOME"></item>
+            android:title="Home"></item>
         <item
-            android:id="@+id/nav_tutorial"
-            android:title="TUTORIAL"></item>
+            android:id="@+id/about"
+            android:title="About"></item>
         <item
-            android:id="@+id/nav_credit"
-            android:title="CREDIT"></item>
-        <item
-            android:id="@+id/nav_Disclaimer"
-            android:title="DISCLAIMER"></item>
+            android:id="@+id/disclaimer"
+            android:title="Disclaimer"></item>
     </group>
 
-    <group android:checkableBehavior="single"
-        android:id="@+id/group2">
-        <item
-            android:id="@+id/nav_setting"
-            android:title="SETTING">
-
-        </item>
-    </group>
 </menu>
