@@ -153,7 +153,7 @@ public class HomeActivity extends AppCompatActivity {
     {
         AdRequest adRequest = new AdRequest.Builder().build();
 
-        RewardedAd.load(this, getString(R.string.admob_rewarded_id),
+        RewardedAd.load(this, getString(R.string.test_rewarded),
                 adRequest, new RewardedAdLoadCallback() {
                     @Override
                     public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
