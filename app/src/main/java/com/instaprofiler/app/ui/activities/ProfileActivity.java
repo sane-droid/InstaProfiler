@@ -38,7 +38,7 @@ public class ProfileActivity extends AppCompatActivity {
     TextView textView, following, followers, name, bio, profileLink, posts;
     String user;
     ProgressDialog progressDialog;
-    public static int MAX=2;
+    public static int MAX=4;
     public static final String LIMIT_PREF="COUNT_MAX_LIMIT";
     SharedPreferences pref=null;
     private int STORAGE_PERMISSION_REQUEST_CODE=202;
@@ -110,7 +110,7 @@ public class ProfileActivity extends AppCompatActivity {
                             final ImageButton button = findViewById(R.id.lockButton);
                             button.setVisibility(View.VISIBLE);
                         }
-
+                        HomeActivity.decreaseLimit(pref);
                     }
                     catch(Exception e)
                     {

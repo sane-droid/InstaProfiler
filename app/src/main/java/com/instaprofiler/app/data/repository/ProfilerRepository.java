@@ -23,20 +23,19 @@ public class ProfilerRepository {
         new Thread(() -> {
 
             try {
+
+
                 Document document = Jsoup.connect(InstagramApi.baseUrl + userName + "/channel" + InstagramApi.key)
                         .ignoreContentType(true).get();
-
                 String body = document.body().toString();
                 Log.d("Body", body);
                 String json = body.replace("<body>", "").replace("</body>", "");
-
                 JSONObject jsonObject = new JSONObject(json);
                 Gson converter = new Gson();
 
                 InstaService instaService = converter.fromJson(jsonObject.toString(), InstaService.class);
                 User user = instaService.getGraphql().getUser();
                 liveData.postValue(user);
-
             } catch (IOException e) {
                 liveData.postValue(null);
                 e.printStackTrace();

@@ -114,13 +114,12 @@ public class HomeActivity extends AppCompatActivity {
                         String userId = userName.getText().toString();
                         intent.putExtra("userName", userId);
                         startActivity(intent);
-                        decreaseLimit(pref);
                         showTokens();
                     }
                 } else {
 
                     if(mRewardedAd==null) {
-                        new MessageDialog("Limit exhausted \nYou have 0 tokens ,you will earn 2 tokens for one rewarded video or sorry if ads are not available,we add 2 tokens daily for you").show(getSupportFragmentManager(), "msg_details");
+                        new MessageDialog("Limit exhausted \nYou have 0 tokens ,you will earn 4 tokens for one rewarded video or sorry if ads are not available,we add 4 tokens daily for you").show(getSupportFragmentManager(), "msg_details");
                     }
                     else
                     {
@@ -153,7 +152,7 @@ public class HomeActivity extends AppCompatActivity {
     {
         AdRequest adRequest = new AdRequest.Builder().build();
 
-        RewardedAd.load(this, getString(R.string.test_rewarded),
+        RewardedAd.load(this, getString(R.string.admob_rewarded_id),
                 adRequest, new RewardedAdLoadCallback() {
                     @Override
                     public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
@@ -190,7 +189,6 @@ public class HomeActivity extends AppCompatActivity {
                                 String userId = userName.getText().toString();
                                 intent.putExtra("userName", userId);
                                 startActivity(intent);
-                                decreaseLimit(pref);
                                 showTokens();
                                 mRewardedAd = null;
                             }
