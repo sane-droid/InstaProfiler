@@ -1,10 +1,14 @@
 package com.instaprofiler.app.ui.dialogfragment;
 
+import android.Manifest;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -18,6 +22,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.ads.AdRequest;
@@ -25,6 +30,7 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.instaprofiler.app.R;
 import com.instaprofiler.app.data.model.User;
 import java.io.File;
@@ -34,6 +40,8 @@ import java.io.FileOutputStream;
 public class ImageDialog extends BottomSheetDialogFragment {
     User user;
     RelativeLayout container;
+    private int STORAGE_PERMISSION_REQUEST_CODE=202;
+    private boolean storagePermissinGranted;
 
     public static final String LOCATION = "/InstaProfiler/Photos";
 
@@ -65,7 +73,15 @@ public class ImageDialog extends BottomSheetDialogFragment {
         Glide.with(this).load(user.getProfilePicUrlHd()).into(imageView);
         FloatingActionButton share = view.findViewById(R.id.share);
         container= view.findViewById(R.id.imageFrame);
-        share.setOnClickListener(v -> shareImg());
+        share.setOnClickListener(v ->
+                {
+                    hasStorageEnable();
+                    if (storagePermissinGranted)
+                    {
+                        shareImg();
+                    }
+                }
+               );
 
         AdView mAdView = view.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -137,7 +153,6 @@ public class ImageDialog extends BottomSheetDialogFragment {
         Bitmap bitmap=Bitmap.createBitmap(container.getWidth(), container.getHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
         container.draw(canvas);
-
         String pathBitmap = MediaStore.Images.Media.insertImage(requireContext().getContentResolver(), bitmap, System.currentTimeMillis()+"", null);
         Intent share = new Intent();
         share.setAction(Intent.ACTION_SEND);
@@ -145,6 +160,48 @@ public class ImageDialog extends BottomSheetDialogFragment {
         share.putExtra(Intent.EXTRA_STREAM, Uri.parse(pathBitmap));
         share.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         startActivity(Intent.createChooser(share, "Send Profile Pic"));
+    }
+
+    private void hasStorageEnable()
+    {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (ContextCompat.checkSelfPermission(
+                    requireContext(),
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+            ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                        STORAGE_PERMISSION_REQUEST_CODE
+                );
+            } else {
+                storagePermissinGranted=true;
+            }
+        } else {
+            storagePermissinGranted = true;
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if ( grantResults[0] == PackageManager.PERMISSION_GRANTED
+        ) {
+            if (requestCode == STORAGE_PERMISSION_REQUEST_CODE)
+            {
+                storagePermissinGranted = true;
+                shareImg();
+            }
+        }
+        else
+        {
+            Snackbar.make(requireView(),"We require storage permission to share profile",Snackbar.LENGTH_INDEFINITE).setAction("Enable", new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    hasStorageEnable();
+                }
+            }).setBackgroundTint(Color.WHITE).setTextColor(Color.parseColor("#BF0A5C")).setActionTextColor(Color.parseColor("#BF0A5C")).show();
+        }
+
     }
 }
 

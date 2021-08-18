@@ -1,8 +1,11 @@
 package com.instaprofiler.app.ui.activities;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -10,7 +13,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
@@ -36,6 +41,8 @@ public class ProfileActivity extends AppCompatActivity {
     public static int MAX=2;
     public static final String LIMIT_PREF="COUNT_MAX_LIMIT";
     SharedPreferences pref=null;
+    private int STORAGE_PERMISSION_REQUEST_CODE=202;
+    private boolean storagePermissinGranted;
 
     public static class ProfilerViewModel extends ViewModel {
         public LiveData<User> liveData = null;
