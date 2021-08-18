@@ -10,7 +10,6 @@
         android:id="@+id/h_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/header"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/atomic_age"
         android:gravity="center_horizontal"

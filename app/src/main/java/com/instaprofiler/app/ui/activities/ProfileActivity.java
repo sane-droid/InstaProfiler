@@ -45,11 +45,11 @@ public class ProfileActivity extends AppCompatActivity {
     private boolean storagePermissinGranted;
 
     public static class ProfilerViewModel extends ViewModel {
-        public LiveData<User> liveData = null;
+        public LiveData<ProfilerRepository.Result> liveData = null;
         ProfilerRepository profilerRepository = new ProfilerRepository();
 
         public void getAccountDetail(String userName) {
-            liveData = profilerRepository.getAccountDetail(userName);
+            liveData = profilerRepository.getAccountDetails(userName);
         }
     }
 
@@ -86,16 +86,20 @@ public class ProfileActivity extends AppCompatActivity {
             startActivity(intent1);
         });
 
-        profilerViewModel.liveData.observe(this, new Observer<User>() {
-            @SuppressLint("SetTextI18n")
+        profilerViewModel.liveData.observe(this, new Observer<ProfilerRepository.Result>() {
             @Override
-            public void onChanged(User userProfile) {
-                textView.setText(user);
+            public void onChanged(ProfilerRepository.Result result) {
+
+
+                User userProfile=result.user;
+                String error=result.error;
+
                 progressDialog.dismiss();
-                if (user != null) {
+                if (userProfile!=null) {
 
                     try
                     {
+                        textView.setText(user);
                         followers.setText( ImageDialog.getInMK(userProfile.getEdgeFollowedBy().getCount()) + "");
                         following.setText( ImageDialog.getInMK(userProfile.getEdgeFollow().getCount()) + "");
                         name.setText( userProfile.getFullName());
@@ -121,7 +125,7 @@ public class ProfileActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    Toast.makeText(getApplicationContext(),"Invaild username or connection problem",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),error,Toast.LENGTH_LONG).show();
                     finish();
                 }
                 instaUser = userProfile;

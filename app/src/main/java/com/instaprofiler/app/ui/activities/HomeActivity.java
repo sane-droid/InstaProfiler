@@ -101,7 +101,7 @@ public class HomeActivity extends AppCompatActivity {
                                 Log.d(TAG, "The user earned the reward.");
                                 int rewardAmount = rewardItem.getAmount();
                                 String rewardType = rewardItem.getType();
-                                updateLimit(pref);
+                                updateLimit(pref,rewardAmount);
                                 showTokens();
                             }
 
@@ -152,7 +152,7 @@ public class HomeActivity extends AppCompatActivity {
     {
         AdRequest adRequest = new AdRequest.Builder().build();
 
-        RewardedAd.load(this, getString(R.string.admob_rewarded_id),
+        RewardedAd.load(this, getString(R.string.test_rewarded),
                 adRequest, new RewardedAdLoadCallback() {
                     @Override
                     public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
@@ -202,6 +202,11 @@ public class HomeActivity extends AppCompatActivity {
     {
         int current=pref.getInt(LIMIT_PREF,0);
         pref.edit().putInt(LIMIT_PREF,current+MAX).apply();
+    }
+    public static void updateLimit(SharedPreferences pref,int reward)
+    {
+        int current=pref.getInt(LIMIT_PREF,0);
+        pref.edit().putInt(LIMIT_PREF,current+reward).apply();
     }
     public static  void decreaseLimit(SharedPreferences pref)
     {
