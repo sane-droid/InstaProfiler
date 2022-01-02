@@ -8,32 +8,27 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/roshanlam/ReadMeTemplate/">
-    <img src="./logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/sane-droid/InstaProfiler/">
+    <img src="./1629199531961.jpg" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Read Me Template</h3>
+  <h3 align="center">InstaProfiler</h3>
 
   <p align="center">
-    A Read Me template for your projects!
+  Fetch instagram profile without authentication
     <br />
-    <a href="https://github.com/roshanlam/ReadMeTemplate/"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/roshanlam/ReadMeTemplate/">View Demo</a>
+    <a href="https://github.coms/sane-droid/InstaProfiler/issues">Report Bug</a>
     ·
-    <a href="https://github.com/roshanlam/ReadMeTemplate/issues">Report Bug</a>
+    <a href="https://github.com//sane-droid/InstaProfiler/issues">Request Feature</a>
     ·
-    <a href="https://github.com/roshanlam/ReadMeTemplate/issues">Request Feature</a>
-    ·
-    <a href="https://github.com/roshanlam/ReadMeTemplate/pulls">Send a Pull Request</a>
+    <a href="https://github.com//sane-droid/InstaProfiler/pulls">Send a Pull Request</a>
   </p>
 </p>
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://github.com//sane-droid/InstaProfiler/0.jpg)
 
 There are many great README templates available on GitHub, however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need.
 
