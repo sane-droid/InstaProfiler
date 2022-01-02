@@ -94,6 +94,11 @@ Contributions are what make the open source community such an amazing place to b
 Distributed under the MIT License. See `LICENSE` for more information.
 
 
+## Contributers
+* [Shreyas](https://github.com/hidshreyas)
+* [Prajwal](https://github.com/prajwal080501)
+* [Sachin](https://github.com/Maverick-01)
+* [Manas](https://github.com/ManasDarpelli)
 
 <!-- CONTACT -->
 ## 📫 Contact
