@@ -53,7 +53,7 @@ You can access public profile of instagram users for free
 
 ### Built With
 This section should list any major frameworks that you built your project using.
-* [Retrofit] (https://square.github.io/retrofit/)
+* [Retrofit](https://square.github.io/retrofit/)
 * [Android](https://developer.android.com/jetpack)
 * [Glide](https://bumptech.github.io/glide/)
 
