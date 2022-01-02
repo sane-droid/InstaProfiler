@@ -1,7 +1,6 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 
 
@@ -28,25 +27,35 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://github.com/sane-droid/InstaProfiler/blob/master/0.jpg)
+![alt text](https://github.com/sane-droid/InstaProfiler/blob/master/0.jpg)
 
-There are many great README templates available on GitHub, however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need.
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should element DRY principles to the rest of your life :smile:
+You can access public profile of instagram users for free
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue.
+* You can share the public profile
+* Please remove ads code if you want 
 
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
+
+## Screenshot (may differ with current version of app)
+
+![alt text](https://github.com/sane-droid/InstaProfiler/blob/master/1.jpg)
+
+![alt text](https://github.com/sane-droid/InstaProfiler/blob/master/2.jpg)
+
+![alt text](https://github.com/sane-droid/InstaProfiler/blob/master/3.jpg)
+
+![alt text](https://github.com/sane-droid/InstaProfiler/blob/master/4.jpg)
+
+![alt text](https://github.com/sane-droid/InstaProfiler/blob/master/5.jpg)
+
+![alt text](https://github.com/sane-droid/InstaProfiler/blob/master/6.jpg)
+
 
 ### Built With
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
-
+This section should list any major frameworks that you built your project using.
+* [Retrofit] (https://square.github.io/retrofit/)
+* [Android](https://developer.android.com/jetpack)
+* [Glide](https://bumptech.github.io/glide/)
 
 
 <!-- GETTING STARTED -->
@@ -57,44 +66,13 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-```sh
-npm install npm@latest -g
-```
+1.Android studio (Latest)
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1.Fork this project (star if you like it :))
 2. Clone the repo
-```sh
-git clone https://github.com/your_username_/Project-Name.git
-```
-3. Install NPM packages
-```sh
-npm install
-```
-4. Enter your API in `config.js`
-```JS
-const API_KEY = 'ENTER YOUR API';
-```
-
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-
-
-<!-- ROADMAP -->
-## 🚧 Roadmap
-
-See the [open issues](https://github.com/roshanlam/ReadMeTemplate/issues) for a list of proposed features (and known issues).
-
+3. Change or add your admob id if required
 
 
 <!-- CONTRIBUTING -->
@@ -112,7 +90,6 @@ Contributions are what make the open source community such an amazing place to b
 
 <!-- LICENSE -->
 ## 📝 License
-Describe your License for your project. 
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
@@ -121,30 +98,16 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## 📫 Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-
-
-<!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* blah blah blah....
-
+[@hishreyass](https://twitter.com/hishreyass) - bansodeshreyash6@gmail.com
 
 
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[forks-shield]: https://img.shields.io/github/forks/roshanlam/ReadMeTemplate?style=for-the-badge
-[forks-url]: https://github.com/roshanlam/ReadMeTemplate/network/members
-[stars-shield]: https://img.shields.io/github/stars/roshanlam/ReadMeTemplate?style=for-the-badge
-[stars-url]: https://github.com/roshanlam/ReadMeTemplate/stargazers
-[issues-shield]: https://img.shields.io/github/issues/roshanlam/ReadMeTemplate?style=for-the-badge
-[issues-url]: https://github.com/roshanlam/ReadMeTemplate/issues
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/roshan-lamichhane
+[forks-shield]: https://img.shields.io/github/forks/sane-droid/InstaProfiler?style=for-the-badge
+[forks-url]: https://github.com/sane-droid/InstaProfiler/network/members
+[stars-shield]: https://img.shields.io/github/stars/sane-droid/InstaProfiler?style=for-the-badge
+[stars-url]: https://github.com/sane-droid/InstaProfiler/stargazers
+[issues-shield]: https://img.shields.io/github/issues/sane-droid/InstaProfiler?style=for-the-badge
+[issues-url]: https://github.com/sane-droid/InstaProfiler/issues
