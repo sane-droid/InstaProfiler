@@ -95,7 +95,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 
 ## Contributers
-* [Shreyas](https://github.com/hidshreyas)
+* [Shreyas](https://github.com/hishreyas)
 * [Prajwal](https://github.com/prajwal080501)
 * [Sachin](https://github.com/Maverick-01)
 * [Manas](https://github.com/ManasDarpelli)
