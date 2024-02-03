@@ -3,24 +3,24 @@ plugins {
 }
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.instaprofiler.app"
+        applicationId "com.sanedroid.instaprofiler"
         minSdkVersion 16
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        targetSdkVersion 30
+        versionCode 9
+        versionName "0.7"
         vectorDrawables.useSupportLibrary = true
-
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         android.defaultConfig.vectorDrawables.useSupportLibrary = true
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -39,10 +39,12 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    //noinspection GradleCompatible
     implementation "com.android.support:design:29.1.1"
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
     implementation 'org.jsoup:jsoup:1.11.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.github.bumptech.glide:glide:4.12.0'
+    implementation 'com.google.android.gms:play-services-ads:20.2.0'
 }
