@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/home_bg"
+    >
+
+    <TextView
+        android:id="@+id/dialog_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/header"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/atomic_age"
+        android:gravity="center_horizontal"
+        android:layout_margin="14dp"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        android:textStyle="bold"
+     />
+
+
+    <TextView
+        android:id="@+id/dialog_text_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:gravity="center"
+        android:layout_below="@id/dialog_logo"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        />
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Swipe down to close"
+        android:textColor="@color/white"
+        android:layout_below="@id/dialog_text_message"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="15dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        >
+
+    </TextView>
+
+</RelativeLayout>

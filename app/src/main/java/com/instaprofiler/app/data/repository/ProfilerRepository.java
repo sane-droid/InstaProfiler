@@ -38,8 +38,10 @@ public class ProfilerRepository {
                 liveData.postValue(user);
 
             } catch (IOException e) {
+                liveData.postValue(null);
                 e.printStackTrace();
             } catch (JSONException e) {
+                liveData.postValue(null);
                 e.printStackTrace();
             }
 
